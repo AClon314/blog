@@ -28,7 +28,7 @@ https://starlight.astro.js.cn/guides/authoring-content/#expressive-code-features
 
 ### 2.支持的拓展语法
 
-[`src/components/phon.astro`](src/components/phon.astro): 仅在 `.mdx` 中可用。先在文件里 `import Phon from '/src/components/phon.astro'`，再写 `<Phon pairs="脚注 footnote" />`。规律为 `pairs="A a B b"` -> `<ruby>A<rt>a</rt>B<rt>b</rt></ruby>`
+[`src/components/Phon.astro`](src/components/Phon.astro): 仅在 `.mdx` 中可用。先在文件里 `import Phon from '/src/components/Phon.astro'`，再写 `<Phon pairs="脚注 footnote" />`。规律为 `pairs="A a B b"` -> `<ruby>A<rt>a</rt>B<rt>b</rt></ruby>`
 
 ## why
 

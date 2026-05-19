@@ -6,68 +6,83 @@ tags:
   - python
 uri: ""
 ---
-import { Code } from 'astro-expressive-code/components';
-import Phon from '/src/components/phon.astro';
+import { Steps } from '@astrojs/starlight/components';
 
-## how
-
-```powershell
-uv init
-```
-
-### pyproject.toml
+import Code from '/src/components/Code.astro';
+import Phon from '/src/components/Phon.astro';
 
 export const code = `
-[build-system]
-build-backend = "setuptools.build_meta"
-requires = ["setuptools>=61.0", "wheel"]
-
 [project]
-classifiers = [
-  "License :: OSI Approved :: MIT License",
-  "Programming Language :: Python",
-  "Development Status :: 3 - Alpha",
-  "Intended Audience :: Developers",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.13",
-  "Programming Language :: Python :: 3.14",
-  "Programming Language :: Python :: 3.15",
-]
-#  TODO: string merge in v0.3? "fast-diff-match-patch ~=2.1"
-dependencies = ["deepdiff ~=8.6", "tree-sitter ~=0.25", "tree-sitter-json ~=0.24"]
-description = "keep comment(round-trip) when read & write jsonc/hjson, sdict with extra context(parent/keypath/merge) like benedict/deepdiff/deepmerge"
-keywords = ["config", "json", "jsonc", "hjson", "round-trip", "comment", "deepdiff", "deepmerge", "benedict", "weakref"]
-name = "jsonc_sdict"
+name = "MY-PACKAGE" # 合法字符: 字母、数字、.、-、_  ，且开头结尾是字母或数字
+version = "0.1.0"
+description = "描述"
 readme = "README.md"
-requires-python = ">=3.13"
-version = "0.2.20260517"
+# 如果你用到了新的python语法，需要改高这个“最低版本”，可用ty而非pylance(pyright)来检查这个
+requires-python = ">=3.8"
+# 默认必装的依赖包
+dependencies = ["pydantic ~=2.12.5"]
 
 [[project.authors]]
-email = "nolca@qq.com"
-name = "nolca"
+email = "邮箱@qq.com"
+name = "作者名"
 
 [project.license]
 file = "LICENSE"
 
 [project.optional-dependencies]
-dev = ["jsonc-sdict[full]", "pytest"]
-# TODO: "desktop-notifier ~=6.2.0" and log for record config file changes
-full = ["argcomplete ~=3.6", "pydantic ~=2.12.5", "hjson ~=3.1.0"]
+# 仅开发/测试
+dev = ["MY-PACKAGE[full]", "pytest"]
+# 可选装的附加功能, uv pip install 'MY-PACKAGE[full]'
+full = ["argcomplete ~=3.6"]
 
 [project.urls]
-Download = "http://github.com/AClon314/jsonc-sdict/releases"
-Homepage = "http://github.com/AClon314/jsonc-sdict"
+Homepage = "http://github.com/用户名/MY-PACKAGE"
+Download = "http://github.com/用户名/MY-PACKAGE/releases"
 
-[project.scripts]
-deep-merge = "jsonc_sdict.Merge:_main_"
+[project.scripts] # 安装后会暴露的.exe或可执行文件
+# run-pkg = "my_package.Module:def_func" # 命令行可执行run-pkg指令
 
-# NOTE: local dev
-[tool.ty.environment]
-extra-paths = ["./.thirdparty/fast_diff_match_patch"]
+# 使用ty语言服务器做本地开发时，解除注释
+#[tool.ty.environment]
+#extra-paths = ["./.thirdparty/pytorch_fork"]
 `;
 
-<Code code={code} lang="ts" title="pyproject.toml" />
+## how
 
+<Steps>
+
+1. 初始化:
+
+    ```powershell mark="MY-PACKAGE"
+    mkdir MY-PACKAGE
+    cd MY-PACKAGE
+    uv init
+    ```
+
+2. 编辑相关信息，添加依赖包，以下是参考模板
+
+    <Code code={code} lang="ts" title="pyproject.toml" mark={["MY-PACKAGE", "my_package"]} />
+
+    也可以用命令添加依赖:
+    ```powershell
+    uv add pydantic
+    ```
+
+3. 安装为本地包
+
+    ```powershell
+    uv pip install -e '.[dev]' -U
+    ```
+
+    - `-e` 代表 <Phon pairs="可编辑的 editable" />
+    - `.` 安装本目录下的
+    - `[dev]` 名为dev的可选包组合
+    - `-U` 检查依赖包并按`pyproject.toml`的版本约束，更新到最新版
+
+</Steps>
 
 ## why
 
+### dependencies 包版本约束规则
+
+### project.scripts 填写规则
