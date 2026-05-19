@@ -1,0 +1,61 @@
+---
+title: "安装python"
+description: "安装python与常用开发工具链"
+when: "python环境缺失时"
+tags:
+  - python
+  - pixi
+  - uv
+uri: ""
+---
+
+## how
+
+### pixi+uv+python
+
+1. 在 https://github.com/prefix-dev/pixi/releases 下载最新版的 [pixi-x86_64-pc-windows-msvc.zip](https://github.com/prefix-dev/pixi/releases/latest/download/pixi-x86_64-pc-windows-msvc.zip)
+2. 将解压后的 `pixi.exe` 放入 \$env:PATH _(环境变量的PATH)_
+
+:::note[环境变量与PATH]
+
+环境变量: 是电脑的 **“全局备忘录”** 。它帮电脑和软件记住一些固定信息，比如“桌面在哪”、“临时文件放哪”。
+
+PATH: 它是环境变量里 **最重要** 的一个，相当于电脑的**“快速导航名单”**。只要把软件的路径加进 PATH 里，你在电脑的任何角落，都能直接输入软件名字打开它，不用再费劲去找那一长串的安装文件夹了。
+
+在Windows的开始菜单里搜索"环境变量"，第一个选项"编辑系统环境变量"。非管理员权限下，我们直接修改上方的 "用户变量"里的Path就行
+
+也可以执行以下命令查看当前的PATH目录有哪些
+
+```powershell
+echo $env:PATH
+```
+
+:::
+
+```powershell
+
+```
+
+## why
+
+更加现代的包管理器，能在一定程度上加速我们的开发过程，包括但不限于 环境隔离[^环境隔离]、加速依赖解析&下载&安装、更加智能的报错……
+
+[^环境隔离]: 如项目A的python为版本3.8，而项目B的python为版本3.10，传统的pip会默认尝试让2个项目使用相同的安装环境，一般会报错。而uv默认就像`pip venv`一样会直接创建独立环境。
+
+以前只有一个全局环境，容易遇到包版本的冲突；现在像npm的node_modules一样，支持且默认可以为每个项目独立安装依赖包。
+
+conda -> [mamba](https://github.com/mamba-org/mamba) -> [pixi](https://github.com/prefix-dev/pixi)
+
+pip -> [uv](https://docs.astral.org.cn/uv/)
+
+### conda 与 pypi 包的区别
+
+| 维度       | PyPI (`pip`)                          | Conda (`conda`)                                                      |
+| :--------- | :------------------------------------ | :------------------------------------------------------------------- |
+| 语言范围   | Python Only                           | Any Language (Python, C, C++, R, Fortran, Rust等)                    |
+| 文件类型   | `.py` / `.whl` / `.so` / `.pyd`       | 上述所有 + `.dll` / `.dylib` / `.a` + `.h` / `.cmake` + 可执行文件等 |
+| Python入口 | ✅ 必须有 (至少包含 `.py` 或入口声明) | ❌ 不需要 (可以完全没有 Python 文件)                                 |
+| 依赖管理   | 仅解析 Python 包依赖                  | 全栈解析 (Python + C/C++库 + Fortran运行时 + R包等)                  |
+| 包体积     | 较小 (仅含 Python 相关产物)           | 较大 (包含完整二进制、运行时，但底层库可跨包共享)                    |
+| 典型场景   | 纯 Python 项目、Web开发、通用脚本     | 数据科学、科学计算、跨语言栈、复杂编译依赖项目                       |
+| 本质定位   | Python 专属的包仓库                   | 语言无关的通用包/环境管理器 (Python只是其中一种生态)                 |

@@ -1,0 +1,73 @@
+---
+title: "创建python包"
+description: "安装python与常用开发工具链"
+when: "python环境缺失时"
+tags:
+  - python
+uri: ""
+---
+import { Code } from 'astro-expressive-code/components';
+import Phon from '/src/components/phon.astro';
+
+## how
+
+```powershell
+uv init
+```
+
+### pyproject.toml
+
+export const code = `
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=61.0", "wheel"]
+
+[project]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
+]
+#  TODO: string merge in v0.3? "fast-diff-match-patch ~=2.1"
+dependencies = ["deepdiff ~=8.6", "tree-sitter ~=0.25", "tree-sitter-json ~=0.24"]
+description = "keep comment(round-trip) when read & write jsonc/hjson, sdict with extra context(parent/keypath/merge) like benedict/deepdiff/deepmerge"
+keywords = ["config", "json", "jsonc", "hjson", "round-trip", "comment", "deepdiff", "deepmerge", "benedict", "weakref"]
+name = "jsonc_sdict"
+readme = "README.md"
+requires-python = ">=3.13"
+version = "0.2.20260517"
+
+[[project.authors]]
+email = "nolca@qq.com"
+name = "nolca"
+
+[project.license]
+file = "LICENSE"
+
+[project.optional-dependencies]
+dev = ["jsonc-sdict[full]", "pytest"]
+# TODO: "desktop-notifier ~=6.2.0" and log for record config file changes
+full = ["argcomplete ~=3.6", "pydantic ~=2.12.5", "hjson ~=3.1.0"]
+
+[project.urls]
+Download = "http://github.com/AClon314/jsonc-sdict/releases"
+Homepage = "http://github.com/AClon314/jsonc-sdict"
+
+[project.scripts]
+deep-merge = "jsonc_sdict.Merge:_main_"
+
+# NOTE: local dev
+[tool.ty.environment]
+extra-paths = ["./.thirdparty/fast_diff_match_patch"]
+`;
+
+<Code code={code} lang="ts" title="pyproject.toml" />
+
+
+## why
+
