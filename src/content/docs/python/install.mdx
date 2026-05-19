@@ -9,7 +9,7 @@ tags:
 uri: ""
 ---
 
-import { Code } from 'astro-expressive-code/components';
+import Code from '/src/components/Code.astro';
 import Only from '/src/components/Only.astro';
 
 export const CONDA_MIRROR = (import.meta.env.CONDA_MIRROR ?? "https://mirrors.tuna.tsinghua.edu.cn/anaconda").replace(/\/$/, '')
@@ -46,8 +46,23 @@ url="${PYPI_MIRROR}"
 
 3. 设置镜像
 
-<Code code={pixi} lang="toml" title="%USERPROFILE%/.pixi/config.toml" mark={CONDA_MIRROR} />
-<Code code={uv} lang="toml" title="%APPDATA%/uv/uv.toml" mark="simple" />
+<Code
+  code={pixi}
+  lang="toml"
+  title="%USERPROFILE%/.pixi/config.toml"
+  title-mac="~/.config/pixi/config.toml"
+  title-linux="~/.config/pixi/config.toml"
+  mark={CONDA_MIRROR}
+/>
+
+<Code
+  code={uv}
+  lang="toml"
+  title="%APPDATA%/uv/uv.toml"
+  title-mac="~/.config/uv/uv.toml"
+  title-linux="~/.config/uv/uv.toml"
+  mark="simple"
+/>
 
 :::note[配置文件路径]
 
@@ -60,13 +75,13 @@ url="${PYPI_MIRROR}"
 pixi global install uv python -e uv
 ```
 
-<Only os="windows">
+<Only os="win">
 
 Windows 下上面的 `%USERPROFILE%` 和 `%APPDATA%` 可直接照抄。
 
 </Only>
 
-<Only os={['macos', 'linux']}>
+<Only os={['mac', 'linux']}>
 
 macOS/Linux 下优先看上面的 `~/.config/pixi/config.toml` 与 `~/.config/uv/uv.toml`。
 

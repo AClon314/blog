@@ -26,12 +26,12 @@
 
   (() => {
     const storageKey = 'starlight-os';
-    const validValues = new Set(['auto', 'windows', 'macos', 'linux', 'all']);
+    const validValues = new Set(['auto', 'win', 'mac', 'linux', 'all']);
     const normalize = (value) => (typeof value === 'string' && validValues.has(value) ? value : 'auto');
     const detectOs = () => {
       const source = `${navigator.userAgent} ${navigator.platform}`.toLowerCase();
-      if (source.includes('win')) return 'windows';
-      if (source.includes('mac') || source.includes('darwin')) return 'macos';
+      if (source.includes('win')) return 'win';
+      if (source.includes('mac') || source.includes('darwin')) return 'mac';
       if (source.includes('linux') || source.includes('x11')) return 'linux';
       return 'all';
     };
@@ -39,6 +39,12 @@
     document.documentElement.dataset.osPreference = picked;
     document.documentElement.dataset.os = picked === 'auto' ? detectOs() : picked;
   })();
+</script>
+
+<script>
+  import { initOsRuntime } from '/src/utils/os-runtime.ts';
+
+  initOsRuntime();
 </script>
 
 <template id="theme-icons">

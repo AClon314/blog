@@ -10,12 +10,6 @@ interface ImportMeta {
 }
 
 interface Window {
-  StarlightOsPreference?: {
-    apply: (value?: string) => void;
-    detectOs: () => string;
-    load: () => string;
-    resolve: (value: string) => string;
-  };
   StarlightThemeProvider?: {
     updatePickers: (theme?: string) => void;
   };

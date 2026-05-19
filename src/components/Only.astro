@@ -1,6 +1,6 @@
 ---
 interface Props {
-  os: 'windows' | 'macos' | 'linux' | 'all' | Array<'windows' | 'macos' | 'linux' | 'all'>;
+  os: 'win' | 'mac' | 'linux' | 'all' | Array<'win' | 'mac' | 'linux' | 'all'>;
 }
 
 const values = Array.isArray(Astro.props.os) ? Astro.props.os : [Astro.props.os];

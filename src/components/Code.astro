@@ -1,0 +1,46 @@
+---
+import { Code as BaseCode } from 'astro-expressive-code/components';
+import type { CodeProps } from 'astro-expressive-code/components/types';
+
+type OsTitleProps = {
+  title?: string;
+  'title-all'?: string;
+  'title-mac'?: string;
+  'title-linux'?: string;
+  'title-win'?: string;
+};
+
+const props = Astro.props as CodeProps & OsTitleProps & Record<string, unknown>;
+
+const defaultTitle = typeof props.title === 'string' ? props.title : undefined;
+const titleAll = typeof props['title-all'] === 'string' ? props['title-all'] : defaultTitle;
+const titleMac = typeof props['title-mac'] === 'string' ? props['title-mac'] : undefined;
+const titleLinux = typeof props['title-linux'] === 'string' ? props['title-linux'] : undefined;
+const titleWin = typeof props['title-win'] === 'string' ? props['title-win'] : undefined;
+
+const hasOsTitles = Boolean(titleAll || titleMac || titleLinux || titleWin);
+
+const {
+  'title-all': _titleAll,
+  'title-mac': _titleMac,
+  'title-linux': _titleLinux,
+  'title-win': _titleWin,
+  ...baseProps
+} = props;
+---
+
+{
+  hasOsTitles ? (
+    <div
+      data-os-bind="code-title"
+      data-title-all={titleAll}
+      data-title-mac={titleMac}
+      data-title-linux={titleLinux}
+      data-title-win={titleWin}
+    >
+      <BaseCode {...baseProps} />
+    </div>
+  ) : (
+    <BaseCode {...baseProps} />
+  )
+}

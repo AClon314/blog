@@ -3,8 +3,8 @@ import Select from '@astrojs/starlight/components/Select.astro';
 
 const options = [
   { label: 'Auto', value: 'auto', selected: true },
-  { label: 'Windows', value: 'windows', selected: false },
-  { label: 'macOS', value: 'macos', selected: false },
+  { label: 'Windows', value: 'win', selected: false },
+  { label: 'macOS', value: 'mac', selected: false },
   { label: 'Linux', value: 'linux', selected: false },
   { label: 'All', value: 'all', selected: false },
 ];
@@ -19,75 +19,25 @@ const options = [
   />
 </starlight-os-select>
 
-<script is:inline>
-  window.StarlightOsPreference = (() => {
-    const storageKey = 'starlight-os';
-    const validValues = new Set(['auto', 'windows', 'macos', 'linux', 'all']);
-
-    const normalize = (value) => (typeof value === 'string' && validValues.has(value) ? value : 'auto');
-
-    const detectOs = () => {
-      if (typeof navigator === 'undefined') return 'all';
-      const source = `${navigator.userAgent} ${navigator.platform}`.toLowerCase();
-      if (source.includes('win')) return 'windows';
-      if (source.includes('mac') || source.includes('darwin')) return 'macos';
-      if (source.includes('linux') || source.includes('x11')) return 'linux';
-      return 'all';
-    };
-
-    const load = () =>
-      normalize(typeof localStorage !== 'undefined' ? localStorage.getItem(storageKey) : 'auto');
-
-    const resolve = (value) => {
-      const picked = normalize(value);
-      return picked === 'auto' ? detectOs() : picked;
-    };
-
-    const store = (value) => {
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(storageKey, normalize(value));
-      }
-    };
-
-    const apply = (value = load()) => {
-      const picked = normalize(value);
-      document.documentElement.dataset.os = resolve(picked);
-      document.documentElement.dataset.osPreference = picked;
-      store(picked);
-      document.querySelectorAll('starlight-os-select select').forEach((select) => {
-        if (select instanceof HTMLSelectElement) select.value = picked;
-      });
-      window.dispatchEvent(
-        new CustomEvent('starlight-os-change', {
-          detail: {
-            value: picked,
-            resolved: resolve(picked),
-          },
-        })
-      );
-    };
-
-    return {
-      apply,
-      detectOs,
-      load,
-      resolve,
-    };
-  })();
-</script>
-
 <script>
-  class StarlightOsSelect extends HTMLElement {
-    constructor() {
-      super();
-      window.StarlightOsPreference?.apply();
-      this.querySelector('select')?.addEventListener('change', (event) => {
-        if (event.currentTarget instanceof HTMLSelectElement) {
-          window.StarlightOsPreference?.apply(event.currentTarget.value);
-        }
-      });
-    }
-  }
+  import { attachOsPicker } from '/src/utils/os-runtime.ts';
 
-  customElements.define('starlight-os-select', StarlightOsSelect);
+  if (!customElements.get('starlight-os-select')) {
+    class StarlightOsSelect extends HTMLElement {
+      #detach?: () => void;
+
+      connectedCallback() {
+        const select = this.querySelector('select');
+        if (select instanceof HTMLSelectElement) {
+          this.#detach = attachOsPicker(select);
+        }
+      }
+
+      disconnectedCallback() {
+        this.#detach?.();
+      }
+    }
+
+    customElements.define('starlight-os-select', StarlightOsSelect);
+  }
 </script>
