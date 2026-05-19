@@ -9,31 +9,54 @@ tags:
 uri: ""
 ---
 
+import { Code } from 'astro-expressive-code/components';
+
+export const MIRROR_CONDA = (import.meta.env.MIRROR_CONDA ?? "https://mirrors.tuna.tsinghua.edu.cn/anaconda").replace(/\/$/, '')
+export const MIRROR_PYPI = (import.meta.env.UV_DEFAULT_INDEX ?? "http://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple").replace(/\/$/, '')
+
+export const pixi = `
+default-channels=["main"]
+[mirrors]
+"https://conda.anaconda.org/main" = ["${MIRROR_CONDA}/pkgs/main"]
+"https://conda.anaconda.org/msys2" = ["${MIRROR_CONDA}/pkgs/msys2"]
+"https://conda.anaconda.org/conda-forge" = ["${MIRROR_CONDA}/cloud/anaconda"]
+"https://conda.anaconda.org/pytorch" = ["${MIRROR_CONDA}/cloud/pytorch"]
+"https://conda.anaconda.org/pytorch3d" = ["${MIRROR_CONDA}/cloud/pytorch3d"]
+[pypi-config]
+index-url="${MIRROR_PYPI.replace(/\/simple$/, '')}"
+[repodata-config]
+disable-sharded=true # avoid 404
+disable-zstd=true # avoid EOF
+[shell]
+change-ps1=true
+`;
+
+export const uv = `
+[[index]]
+url="${MIRROR_PYPI}"
+`;
+
 ## how
 
 ### pixi+uv+python
 
 1. 在 https://github.com/prefix-dev/pixi/releases 下载最新版的 [pixi-x86_64-pc-windows-msvc.zip](https://github.com/prefix-dev/pixi/releases/latest/download/pixi-x86_64-pc-windows-msvc.zip)
-2. 将解压后的 `pixi.exe` 放入 \$env:PATH _(环境变量的PATH)_
+2. 将解压后的 `pixi.exe` 放入 $env:PATH _(环境变量的PATH)_
 
-:::note[环境变量与PATH]
+3. 设置镜像
 
-环境变量: 是电脑的 **“全局备忘录”** 。它帮电脑和软件记住一些固定信息，比如“桌面在哪”、“临时文件放哪”。
+<Code code={pixi} lang="toml" title="%USERPROFILE%/.pixi/config.toml" mark={MIRROR_CONDA} />
+<Code code={uv} lang="toml" title="%APPDATA%/uv/uv.toml" mark="simple" />
 
-PATH: 它是环境变量里 **最重要** 的一个，相当于电脑的**“快速导航名单”**。只要把软件的路径加进 PATH 里，你在电脑的任何角落，都能直接输入软件名字打开它，不用再费劲去找那一长串的安装文件夹了。
+:::note[配置文件路径]
 
-在Windows的开始菜单里搜索"环境变量"，第一个选项"编辑系统环境变量"。非管理员权限下，我们直接修改上方的 "用户变量"里的Path就行
-
-也可以执行以下命令查看当前的PATH目录有哪些
-
-```powershell
-echo $env:PATH
-```
+在 mac OS/linux 中，则分别为 `~/.config/pixi/config.toml` 与 `~/.config/uv/uv.toml`
 
 :::
 
+4. 调用pixi安装uv与python
 ```powershell
-
+pixi global install uv python -e uv
 ```
 
 ## why
