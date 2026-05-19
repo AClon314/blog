@@ -10,20 +10,21 @@ uri: ""
 ---
 
 import { Code } from 'astro-expressive-code/components';
+import Only from '/src/components/Only.astro';
 
-export const MIRROR_CONDA = (import.meta.env.MIRROR_CONDA ?? "https://mirrors.tuna.tsinghua.edu.cn/anaconda").replace(/\/$/, '')
-export const MIRROR_PYPI = (import.meta.env.UV_DEFAULT_INDEX ?? "http://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple").replace(/\/$/, '')
+export const CONDA_MIRROR = (import.meta.env.CONDA_MIRROR ?? "https://mirrors.tuna.tsinghua.edu.cn/anaconda").replace(/\/$/, '')
+export const PYPI_MIRROR = (import.meta.env.UV_DEFAULT_INDEX ?? "http://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple").replace(/\/$/, '')
 
 export const pixi = `
 default-channels=["main"]
 [mirrors]
-"https://conda.anaconda.org/main" = ["${MIRROR_CONDA}/pkgs/main"]
-"https://conda.anaconda.org/msys2" = ["${MIRROR_CONDA}/pkgs/msys2"]
-"https://conda.anaconda.org/conda-forge" = ["${MIRROR_CONDA}/cloud/anaconda"]
-"https://conda.anaconda.org/pytorch" = ["${MIRROR_CONDA}/cloud/pytorch"]
-"https://conda.anaconda.org/pytorch3d" = ["${MIRROR_CONDA}/cloud/pytorch3d"]
+"https://conda.anaconda.org/main" = ["${CONDA_MIRROR}/pkgs/main"]
+"https://conda.anaconda.org/msys2" = ["${CONDA_MIRROR}/pkgs/msys2"]
+"https://conda.anaconda.org/conda-forge" = ["${CONDA_MIRROR}/cloud/anaconda"]
+"https://conda.anaconda.org/pytorch" = ["${CONDA_MIRROR}/cloud/pytorch"]
+"https://conda.anaconda.org/pytorch3d" = ["${CONDA_MIRROR}/cloud/pytorch3d"]
 [pypi-config]
-index-url="${MIRROR_PYPI.replace(/\/simple$/, '')}"
+index-url="${PYPI_MIRROR.replace(/\/simple$/, '')}"
 [repodata-config]
 disable-sharded=true # avoid 404
 disable-zstd=true # avoid EOF
@@ -33,7 +34,7 @@ change-ps1=true
 
 export const uv = `
 [[index]]
-url="${MIRROR_PYPI}"
+url="${PYPI_MIRROR}"
 `;
 
 ## how
@@ -45,7 +46,7 @@ url="${MIRROR_PYPI}"
 
 3. 设置镜像
 
-<Code code={pixi} lang="toml" title="%USERPROFILE%/.pixi/config.toml" mark={MIRROR_CONDA} />
+<Code code={pixi} lang="toml" title="%USERPROFILE%/.pixi/config.toml" mark={CONDA_MIRROR} />
 <Code code={uv} lang="toml" title="%APPDATA%/uv/uv.toml" mark="simple" />
 
 :::note[配置文件路径]
@@ -58,6 +59,18 @@ url="${MIRROR_PYPI}"
 ```powershell
 pixi global install uv python -e uv
 ```
+
+<Only os="windows">
+
+Windows 下上面的 `%USERPROFILE%` 和 `%APPDATA%` 可直接照抄。
+
+</Only>
+
+<Only os={['macos', 'linux']}>
+
+macOS/Linux 下优先看上面的 `~/.config/pixi/config.toml` 与 `~/.config/uv/uv.toml`。
+
+</Only>
 
 ## why
 

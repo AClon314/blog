@@ -1,10 +1,22 @@
 declare module "*.mjs";
 
 interface ImportMetaEnv {
-  readonly MIRROR_CONDA?: string;
+  readonly CONDA_MIRROR?: string;
   readonly UV_DEFAULT_INDEX?: `${string}/simple`;
 }
 
 interface ImportMeta {
   readonly env: ImportMetaEnv;
+}
+
+interface Window {
+  StarlightOsPreference?: {
+    apply: (value?: string) => void;
+    detectOs: () => string;
+    load: () => string;
+    resolve: (value: string) => string;
+  };
+  StarlightThemeProvider?: {
+    updatePickers: (theme?: string) => void;
+  };
 }

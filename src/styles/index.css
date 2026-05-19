@@ -1,3 +1,7 @@
 em {
   filter: opacity(0.5);
 }
+
+starlight-only[hidden] {
+  display: none !important;
+}

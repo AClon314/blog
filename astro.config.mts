@@ -8,6 +8,11 @@ import starlightLlmsTxt from 'starlight-llms-txt'
 
 const slConfig = {
   title: "知识库",
+  components: {
+    Header: './src/components/StarlightHeader.astro',
+    MobileMenuFooter: './src/components/StarlightMobileMenuFooter.astro',
+    ThemeProvider: './src/components/StarlightThemeProvider.astro',
+  },
   social: [
     {
       icon: "github",
