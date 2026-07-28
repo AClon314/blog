@@ -5,12 +5,12 @@ import { docsSchema } from '@astrojs/starlight/schema';
 
 export const collections = {
 	docs: defineCollection({
-			loader: docsLoader(), schema: docsSchema({
-				extend: z.object({
-					description: z.string(),
-					when: z.string(),
-					tags: z.array(z.enum(["python", "pixi", "uv", "ai", "markdown"]))
-				})
+		loader: docsLoader(), schema: docsSchema({
+			extend: z.object({
+				description: z.string(),
+				when: z.string(),
+				//tags: z.array(z.enum(["python", "pixi", "uv", "ai", "markdown"]))
 			})
-		}),
+		})
+	}),
 };

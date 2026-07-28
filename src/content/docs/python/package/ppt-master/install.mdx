@@ -1,0 +1,46 @@
+---
+title: "安装ppt-master"
+description: "目前生成pptx质量较高的ai工具"
+when: "从markdown生成可编辑pptx时"
+tags:
+  - python
+  - ai
+  - ppt
+uri: ""
+---
+
+## how
+
+<Steps>
+
+1. 初始化:
+
+    ```powershell mark="MY-PACKAGE"
+    mkdir MY-PACKAGE
+    cd MY-PACKAGE
+    uv init
+    ```
+
+2. 编辑相关信息，添加依赖包，以下是参考模板
+
+    <Code code={code} lang="ts" title="pyproject.toml" mark={["MY-PACKAGE", "my_package"]} />
+
+    也可以用命令添加依赖:
+    ```powershell
+    uv add pydantic
+    ```
+
+3. 安装为本地包
+
+    ```powershell
+    uv pip install -e '.[dev]' -U
+    ```
+
+    - `-e` 代表 <Phon pairs="可编辑的 editable" />
+    - `.` 安装本目录下的
+    - `[dev]` 名为dev的可选包组合
+    - `-U` 检查依赖包并按`pyproject.toml`的版本约束，更新到最新版
+
+</Steps>
+
+## why
