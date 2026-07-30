@@ -1,0 +1,20 @@
+---
+title: SvelTeX demo
+description: SvelTeX demo page
+---
+
+# SvelTeX demo
+
+Markdown: _italic_ **bold** `code` [link](https://example.com)
+
+Fenced code blocks:
+
+```ts
+console.log('Hello, World!');
+```
+
+Math:
+
+$$
+\int_{a}^{b} f'(t) \, \mathrm{d}t = f(b) - f(a).
+$$
