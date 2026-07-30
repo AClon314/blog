@@ -1,4 +1,5 @@
 import { sveltex } from '@nvl/sveltex';
+import remarkGfm from 'remark-gfm';
 
 export default await sveltex(
     {
@@ -8,7 +9,7 @@ export default await sveltex(
     },
     {
         markdown: {
-            // Markdown options
+            remarkPlugins: [remarkGfm],
         },
         code: {
             shiki: {
@@ -25,6 +26,10 @@ export default await sveltex(
             // Default LaTeX options
         },
         verbatim: {
+            Code: {
+                type: 'code',
+                component: 'none',
+            },
             // Content inside <TeX ref="...">...</TeX> will be compiled by the
             // local TeX distribution. For example, you can try the following:
             // "<TeX ref="example">\LaTeX</TeX>". Note that the "ref" attribute

@@ -28,6 +28,7 @@
 		"oxfmt": "^0.61.0",
 		"oxlint": "^1.76.0",
 		"rehype-stringify": "^10.0.0",
+		"remark-gfm": "^4.0.1",
 		"remark-parse": "^11.0.0",
 		"remark-rehype": "^11.1.0",
 		"remark-retext": "^6.0.0",
