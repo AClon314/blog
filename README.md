@@ -1,53 +1,42 @@
-# 如何编写知识库
+# sv
 
-见 [首页](src/content/docs/index.mdx)
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-# Starlight Starter Kit: Basics
+## Creating a project
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+If you're seeing this, you've probably already done this step. Congrats!
 
-```
-bun create astro@latest -- --template starlight
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+```sh
+# create a new project
+npx sv create my-app
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+To recreate this project with the same configuration:
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+```sh
+# recreate this project
+bun x sv@0.16.6 create --template minimal --types ts --add tailwindcss="plugins:forms,typography" sveltekit-adapter="adapter:auto" paraglide="languageTags:zh-cn+demo:yes" experimental="versions:kit+features:async,remoteFunctions,explicitEnvironmentVariables,handleRenderingErrors" --install bun ./
+```
 
-Static assets, like favicons, can be placed in the `public/` directory.
+## Developing
 
-## 🧞 Commands
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-All commands are run from the root of the project, from a terminal:
+```sh
+npm run dev
 
-| Command               | Action                                           |
-| :-------------------- | :----------------------------------------------- |
-| `bun install`         | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-## 👀 Want to learn more?
+## Building
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+To create a production version of your app:
+
+```sh
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
