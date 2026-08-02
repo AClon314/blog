@@ -1,3 +1,9 @@
+github.com/python/peps
+
+reST to markdown
+
+svelte ssr, or html to markdown
+
 # sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).

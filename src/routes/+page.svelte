@@ -6,9 +6,9 @@
 			body: '环境、工具链和常见安装步骤。'
 		},
 		{
-			title: 'Playwright',
-			href: '/python/package/playwright/install',
-			body: '浏览器自动化与安装说明。'
+			title: 'SvelTeX Demo',
+			href: '/sveltex-demo',
+			body: '查看 Markdown、代码高亮和数学公式的渲染效果。'
 		},
 		{
 			title: '演示页面',

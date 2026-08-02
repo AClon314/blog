@@ -9,6 +9,7 @@
         "@mathjax/src": "^4.0.0",
         "@nvl/sveltex": "^0.5.0",
         "@sveltejs/adapter-auto": "next",
+        "@sveltejs/adapter-static": "^3.0.10",
         "@sveltejs/kit": "next",
         "@sveltejs/vite-plugin-svelte": "^7.1.2",
         "@tailwindcss/forms": "^0.5.11",
@@ -205,6 +206,8 @@
     "@sveltejs/acorn-typescript": ["@sveltejs/acorn-typescript@1.0.11", "", { "peerDependencies": { "acorn": "^8.9.0" } }, "sha512-LFuZUkjJ9iF7JZye/aG5XM0SFcQ5VyL0oVX4WJ9dc0Va3R3s0OauX1BESVCb+YN/ol8TAfqGDDAQsTG627Y5kw=="],
 
     "@sveltejs/adapter-auto": ["@sveltejs/adapter-auto@8.0.0-next.1", "", { "peerDependencies": { "@sveltejs/kit": "^3.0.0-next.0" } }, "sha512-iqP8s3gwUTgEPJjQIQ+9C3lJDwx21nJFZvuuD8SeIbdJ8MlpW9FdumMpIddmzq/xejI/G6guCwBKt1Kff5kt2Q=="],
+
+    "@sveltejs/adapter-static": ["@sveltejs/adapter-static@3.0.10", "", { "peerDependencies": { "@sveltejs/kit": "^2.0.0" } }, "sha512-7D9lYFWJmB7zxZyTE/qxjksvMqzMuYrrsyh1f4AlZqeZeACPRySjbC3aFiY55wb1tWUaKOQG9PVbm74JcN2Iew=="],
 
     "@sveltejs/kit": ["@sveltejs/kit@3.0.0-next.13", "", { "dependencies": { "@standard-schema/spec": "^1.1.0", "@sveltejs/acorn-typescript": "^1.0.10", "acorn": "^8.17.0", "cookie": "^2.0.0", "devalue": "^5.8.1", "esm-env": "^1.2.2", "magic-string": "^0.30.21", "mrmime": "^2.0.0", "sirv": "^3.0.2" }, "peerDependencies": { "@opentelemetry/api": "^1.0.0", "@sveltejs/vite-plugin-svelte": "^7.0.0", "svelte": "^5.56.4", "typescript": "^6.0.0", "vite": "^8.0.12" }, "optionalPeers": ["@opentelemetry/api", "typescript"], "bin": { "svelte-kit": "svelte-kit.js" } }, "sha512-t3GeqIfpYDUGVTJ7MYf+gn+cbWi5nwS4x9kczL9lDHY7b0trYsWGk+6lfga9ipaSlWk3/E79yZJjh2biCbm7Lg=="],
 

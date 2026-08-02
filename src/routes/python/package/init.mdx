@@ -1,0 +1,88 @@
+---
+title: "创建python包"
+description: "安装python与常用开发工具链"
+when: "python环境缺失时"
+tags:
+  - python
+uri: ""
+---
+import { Steps } from '@astrojs/starlight/components';
+
+import Code from '/src/components/Code.astro';
+import Phon from '/src/components/Phon.astro';
+
+export const code = `
+[project]
+name = "MY-PACKAGE" # 合法字符: 字母、数字、.、-、_  ，且开头结尾是字母或数字
+version = "0.1.0"
+description = "描述"
+readme = "README.md"
+# 如果你用到了新的python语法，需要改高这个“最低版本”，可用ty而非pylance(pyright)来检查这个
+requires-python = ">=3.8"
+# 默认必装的依赖包
+dependencies = ["pydantic ~=2.12.5"]
+
+[[project.authors]]
+email = "邮箱@qq.com"
+name = "作者名"
+
+[project.license]
+file = "LICENSE"
+
+[project.optional-dependencies]
+# 仅开发/测试
+dev = ["MY-PACKAGE[full]", "pytest"]
+# 可选装的附加功能, uv pip install 'MY-PACKAGE[full]'
+full = ["argcomplete ~=3.6"]
+
+[project.urls]
+Homepage = "http://github.com/用户名/MY-PACKAGE"
+Download = "http://github.com/用户名/MY-PACKAGE/releases"
+
+[project.scripts] # 安装后会暴露的.exe或可执行文件
+# run-pkg = "my_package.Module:def_func" # 命令行可执行run-pkg指令
+
+# 使用ty语言服务器做本地开发时，解除注释
+#[tool.ty.environment]
+#extra-paths = ["./.thirdparty/pytorch_fork"]
+`;
+
+## how
+
+<Steps>
+
+1. 初始化:
+
+    ```powershell mark="MY-PACKAGE"
+    mkdir MY-PACKAGE
+    cd MY-PACKAGE
+    uv init
+    ```
+
+2. 编辑相关信息，添加依赖包，以下是参考模板
+
+    <Code code={code} lang="ts" title="pyproject.toml" mark={["MY-PACKAGE", "my_package"]} />
+
+    也可以用命令添加依赖:
+    ```powershell
+    uv add pydantic
+    ```
+
+3. 安装为本地包
+
+    ```powershell
+    uv pip install -e '.[dev]' -U
+    ```
+
+    - `-e` 代表 <Phon pairs="可编辑的 editable" />
+    - `.` 安装本目录下的
+    - `[dev]` 名为dev的可选包组合
+    - `-U` 检查依赖包并按`pyproject.toml`的版本约束，更新到最新版
+
+</Steps>
+
+## why
+
+### dependencies 包版本约束规则
+
+### project.scripts 填写规则

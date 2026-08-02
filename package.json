@@ -20,6 +20,7 @@
 		"@mathjax/src": "^4.0.0",
 		"@nvl/sveltex": "^0.5.0",
 		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "next",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
 		"@tailwindcss/forms": "^0.5.11",

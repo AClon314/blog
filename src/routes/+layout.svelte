@@ -10,6 +10,8 @@
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<!-- TODO: header to switch current OS -->
+
 {@render children()}
 
 <div style="display:none">

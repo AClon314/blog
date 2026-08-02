@@ -1,0 +1,49 @@
+---
+title: "安装cli或mcp"
+description: "crawl4ai是目前集 爬虫为一体的ai专用浏览器，但与browser-harness相比人类不能介入操作"
+when: "遇到登录界面/人机验证等需要人类介入时"
+tags:
+  - python
+  - ai
+  - browser
+  - playwright
+uri: ""
+---
+
+## how
+
+<Steps>
+
+1. 初始化:
+
+    ```powershell mark="MY-PACKAGE"
+    mkdir MY-PACKAGE
+    cd MY-PACKAGE
+    uv init
+    ```
+
+2. 编辑相关信息，添加依赖包，以下是参考模板
+
+    <Code code={code} lang="ts" title="pyproject.toml" mark={["MY-PACKAGE", "my_package"]} />
+
+    也可以用命令添加依赖:
+    ```powershell
+    uv add pydantic
+    ```
+
+3. 安装为本地包
+
+    ```powershell
+    uv pip install -e '.[dev]' -U
+    ```
+
+    - `-e` 代表 <Phon pairs="可编辑的 editable" />
+    - `.` 安装本目录下的
+    - `[dev]` 名为dev的可选包组合
+    - `-U` 检查依赖包并按`pyproject.toml`的版本约束，更新到最新版
+
+</Steps>
+
+## why
+
+### cli vs mcp

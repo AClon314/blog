@@ -1,6 +1,6 @@
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import tailwindcss from '@tailwindcss/vite';
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
@@ -29,7 +29,10 @@ export default defineConfig(({ mode }) => {
         // adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
         // If your environment is not supported, or you settled on a specific environment, switch out the adapter.
         // See https://svelte.dev/docs/kit/adapters for more information about adapters.
-        adapter: adapter(),
+        adapter: adapter({
+          pages: 'build',
+          assets: 'build',
+        }),
         experimental: { remoteFunctions: true }
       }),
 
