@@ -6,6 +6,8 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"build:md": "bun run build && bun run export:md",
+		"export:md": "node scripts/export-html-to-markdown.mjs",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -26,6 +28,7 @@
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.3.0",
+		"jsdom": "^30.0.1",
 		"oxfmt": "^0.61.0",
 		"oxlint": "^1.76.0",
 		"rehype-stringify": "^10.0.0",
@@ -37,6 +40,8 @@
 		"svelte": "^5.56.1",
 		"svelte-check": "^4.6.0",
 		"tailwindcss": "^4.3.0",
+		"turndown": "^7.2.4",
+		"turndown-plugin-gfm": "^1.0.2",
 		"typescript": "^6.0.3",
 		"unified": "^11.0.4",
 		"vite": "^8.0.16"
