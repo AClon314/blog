@@ -1,8 +1,6 @@
-github.com/python/peps
+- [ ] [reST](github.com/python/peps) to markdown
 
-reST to markdown
-
-svelte ssr, or html to markdown
+- [x] svelte ssr, or html to markdown
 
 # sv
 
