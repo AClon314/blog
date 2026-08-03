@@ -8,7 +8,8 @@ tags:
   - playwright
 uri: ""
 ---
-import Code from 'src/components/Code.astro'
+
+import Code from "src/components/Code.astro";
 
 ## how
 
@@ -17,25 +18,26 @@ import Code from 'src/components/Code.astro'
 <Steps>
 
 1. 下载 chrome for testing 的对应版本，自行替换下面的url内的版本号:
-[chrome-win64.zip](https://cdn.npmmirror.com/binaries/chrome-for-testing/148.0.7778.96/win64/chrome-win64.zip)
-[chrome-headless-shell-win64.zip](https://cdn.npmmirror.com/binaries/chrome-for-testing/148.0.7778.96/win64/chrome-headless-shell-win64.zip)
+   [chrome-win64.zip](https://cdn.npmmirror.com/binaries/chrome-for-testing/148.0.7778.96/win64/chrome-win64.zip)
+   [chrome-headless-shell-win64.zip](https://cdn.npmmirror.com/binaries/chrome-for-testing/148.0.7778.96/win64/chrome-headless-shell-win64.zip)
 
 有时装chrome有时装chromium, 这里需要查询 revision
 
 > 1. 获取npmmirror镜像站最新的builds版本号 https://registry.npmmirror.com/-/binary/playwright/builds/chromium/ ,找date最大的值, 这里是 `1200`. 并下载对应的2个二进制zip
 > 2. 获取最新release版本号: v1.57
 > 3. 读取github的browser.json，替换下方url的替换release-1.xx分支。版本默认降低5个，二分法确定对应的`revision: 1200`
-https://raw.githubusercontent.com/microsoft/playwright/refs/heads/release-1.57/packages/playwright-core/browsers.json
+>    https://raw.githubusercontent.com/microsoft/playwright/refs/heads/release-1.57/packages/playwright-core/browsers.json
 
 有时需额外安装下面的:
 [ffmpeg-win64.zip](https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-win64.zip)
 [winldd-win64.zip](https://cdn.playwright.dev/dbazure/download/playwright/builds/winldd/1007/winldd-win64.zip)
 
 2. 构建目录结构，设置环境变量，启动本地文件服务器
+
 ```powershell
 mkdir -p playwright/builds/ && cd playwright/builds/
 mkdir -p cft/148.0.7778.96/win64 winldd/ ffmpeg/ chromium/ firefox/
-mv 
+mv
 
 $env:PLAYWRIGHT_DOWNLOAD_HOST="http://localhost:8000"
 $env:PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST="http://localhost:8000"
@@ -46,4 +48,5 @@ python -m http.server
 </Steps>
 
 ## why
+
 目前只有阿里镜像有playwright二进制包，而且非常不直观。

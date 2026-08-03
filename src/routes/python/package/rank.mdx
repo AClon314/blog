@@ -21,24 +21,26 @@ uri: ""
 
 | pypi                                                                                                                                                         | commits                                                                                                                                                                                                                                           | issues                                                                                                                                                                                                                     | about                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| [spyoungtech/json-five ![⭐](https://img.shields.io/github/stars/spyoungtech/json-five?style=flat&label=⭐)](https://github.com/spyoungtech/json-five)       | [![🕒](https://img.shields.io/github/commit-activity/t/spyoungtech/json-five/main?label=🕒) ![LAST🕒](https://img.shields.io/github/last-commit/spyoungtech/json-five/main?label=🕒)](https://github.com/spyoungtech/json-five/commits)           | [![🎯](https://img.shields.io/github/issues/spyoungtech/json-five?label=⁉️) ![🎯close](https://img.shields.io/github/issues-closed/spyoungtech/json-five?label=❔)](https://github.com/spyoungtech/json-five/issues)       | Python JSON5 parser with **round-trip** preservation of comments    | 
+| [spyoungtech/json-five ![⭐](https://img.shields.io/github/stars/spyoungtech/json-five?style=flat&label=⭐)](https://github.com/spyoungtech/json-five)       | [![🕒](https://img.shields.io/github/commit-activity/t/spyoungtech/json-five/main?label=🕒) ![LAST🕒](https://img.shields.io/github/last-commit/spyoungtech/json-five/main?label=🕒)](https://github.com/spyoungtech/json-five/commits)           | [![🎯](https://img.shields.io/github/issues/spyoungtech/json-five?label=⁉️) ![🎯close](https://img.shields.io/github/issues-closed/spyoungtech/json-five?label=❔)](https://github.com/spyoungtech/json-five/issues)       | Python JSON5 parser with **round-trip** preservation of comments    |
 | [tusharsadhwani/json5kit ![⭐](https://img.shields.io/github/stars/tusharsadhwani/json5kit?style=flat&label=⭐)](https://github.com/tusharsadhwani/json5kit) | [![🕒](https://img.shields.io/github/commit-activity/t/tusharsadhwani/json5kit/master?label=🕒) ![LAST🕒](https://img.shields.io/github/last-commit/tusharsadhwani/json5kit/master?label=🕒)](https://github.com/tusharsadhwani/json5kit/commits) | [![🎯](https://img.shields.io/github/issues/tusharsadhwani/json5kit?label=⁉️) ![🎯close](https://img.shields.io/github/issues-closed/tusharsadhwani/json5kit?label=❔)](https://github.com/tusharsadhwani/json5kit/issues) | A **Roundtrip** parser and CST for JSON, JSONC and JSON5.           |
 | [dpranke/pyjson5 ![⭐](https://img.shields.io/github/stars/dpranke/pyjson5?style=flat&label=⭐)](https://github.com/dpranke/pyjson5)                         | [![🕒](https://img.shields.io/github/commit-activity/t/dpranke/pyjson5/main?label=🕒) ![LAST🕒](https://img.shields.io/github/last-commit/dpranke/pyjson5/main?label=🕒)](https://github.com/dpranke/pyjson5/commits)                             | [![🎯](https://img.shields.io/github/issues/dpranke/pyjson5?label=⁉️) ![🎯close](https://img.shields.io/github/issues-closed/dpranke/pyjson5?label=❔)](https://github.com/dpranke/pyjson5/issues)                         | A Python implementation of the JSON5 data format                    |
 | [austinyu/ujson5 ![⭐](https://img.shields.io/github/stars/austinyu/ujson5?style=flat&label=⭐)](https://github.com/austinyu/ujson5)                         | [![🕒](https://img.shields.io/github/commit-activity/t/austinyu/ujson5/main?label=🕒) ![LAST🕒](https://img.shields.io/github/last-commit/austinyu/ujson5/main?label=🕒)](https://github.com/austinyu/ujson5/commits)                             | [![🎯](https://img.shields.io/github/issues/austinyu/ujson5?label=⁉️) ![🎯close](https://img.shields.io/github/issues-closed/austinyu/ujson5?label=❔)](https://github.com/austinyu/ujson5/issues)                         | A fast JSON5 encoder/decoder for Python                             |
 | [qvecs/qjson5 ![⭐](https://img.shields.io/github/stars/qvecs/qjson5?style=flat&label=⭐)](https://github.com/qvecs/qjson5)                                  | [![🕒](https://img.shields.io/github/commit-activity/t/qvecs/qjson5/main?label=🕒) ![LAST🕒](https://img.shields.io/github/last-commit/qvecs/qjson5/main?label=🕒)](https://github.com/qvecs/qjson5/commits)                                      | [![🎯](https://img.shields.io/github/issues/qvecs/qjson5?label=⁉️) ![🎯close](https://img.shields.io/github/issues-closed/qvecs/qjson5?label=❔)](https://github.com/qvecs/qjson5/issues)                                  | 📎 A quick JSON5 implementation written in C, with Python bindings. |
 
 分析如下：
+
 - 优先选择 pyjson5, 保持了高更新频率, 高星标与高下载量
 - 如果需要保留注释双向读写，则优先选择 json-five 而非 json5kit
 
 ### 个人经验
+
 不包含任何AI的工具基座:harness
 
 #### AI控制浏览器
 
 [playwright]: 自动化测试、爬虫、自动点击或交互。支持获取网络请求等F12开发者工具里的数据辅助调试。
 
-[playwright-cli]: 对shell友好，成功率较高。snapshot功能会将 包含各种可交互元素的无障碍访问树转为markdown给AI，但由于大部分网页不注重aria-*属性，且snapshot不包含css样式，首次构建选择器正确率偏低。
+[playwright-cli]: 对shell友好，成功率较高。snapshot功能会将 包含各种可交互元素的无障碍访问树转为markdown给AI，但由于大部分网页不注重aria-\*属性，且snapshot不包含css样式，首次构建选择器正确率偏低。
 
 [playwright-mcp]: 渐进式披露，但成功率比cli似乎更低。在尝试调用 unsafe_eval 与 evalutate 时总会有一个失败。尚不清楚原因
 
@@ -49,7 +51,6 @@ uri: ""
 [crawl4ai]: 纯AI控制，人类无法介入辅助操作浏览器。但是提取的markdown比playwright的snapshot更干净一些。
 
 TODO: snapshot与crawl4ai在多个网站的具体差别。
-
 
 #### AI编写文档
 
@@ -97,4 +98,3 @@ TODO: snapshot与crawl4ai在多个网站的具体差别。
 [pyyaml]
 
 [toml] python官方
-

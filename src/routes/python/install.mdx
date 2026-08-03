@@ -8,12 +8,17 @@ tags:
   - uv
 uri: ""
 ---
-import { Steps } from '@astrojs/starlight/components';
-import Code from '/src/components/Code.astro';
-import Only from '/src/components/Only.astro';
 
-export const CONDA_MIRROR = (import.meta.env.CONDA_MIRROR ?? "https://mirrors.tuna.tsinghua.edu.cn/anaconda").replace(/\/$/, '')
-export const PYPI_MIRROR = (import.meta.env.UV_DEFAULT_INDEX ?? "http://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple").replace(/\/$/, '')
+import { Steps } from "@astrojs/starlight/components";
+import Code from "/src/components/Code.astro";
+import Only from "/src/components/Only.astro";
+
+export const CONDA_MIRROR = (
+  import.meta.env.CONDA_MIRROR ?? "https://mirrors.tuna.tsinghua.edu.cn/anaconda"
+).replace(/\/$/, "");
+export const PYPI_MIRROR = (
+  import.meta.env.UV_DEFAULT_INDEX ?? "http://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+).replace(/\/$/, "");
 
 export const pixi = `
 default-channels=["main"]
@@ -24,7 +29,7 @@ default-channels=["main"]
 "https://conda.anaconda.org/pytorch" = ["${CONDA_MIRROR}/cloud/pytorch"]
 "https://conda.anaconda.org/pytorch3d" = ["${CONDA_MIRROR}/cloud/pytorch3d"]
 [pypi-config]
-index-url="${PYPI_MIRROR.replace(/\/simple$/, '')}"
+index-url="${PYPI_MIRROR.replace(/\/simple$/, "")}"
 [repodata-config]
 disable-sharded=true # avoid 404
 disable-zstd=true # avoid EOF
@@ -48,46 +53,49 @@ url="${PYPI_MIRROR}"
 
 3. 设置镜像
 
-    <Code
-      code={pixi}
-      lang="toml"
-      title="%USERPROFILE%/.pixi/config.toml"
-      title-mac="~/.config/pixi/config.toml"
-      title-linux="~/.config/pixi/config.toml"
-      mark={CONDA_MIRROR}
-    />
+   <Code
+     code={pixi}
+     lang="toml"
+     title="%USERPROFILE%/.pixi/config.toml"
+     title-mac="~/.config/pixi/config.toml"
+     title-linux="~/.config/pixi/config.toml"
+     mark={CONDA_MIRROR}
+   />
 
-    <Code
-      code={uv}
-      lang="toml"
-      title="%APPDATA%/uv/uv.toml"
-      title-mac="~/.config/uv/uv.toml"
-      title-linux="~/.config/uv/uv.toml"
-      mark="simple"
-    />
+   <Code
+     code={uv}
+     lang="toml"
+     title="%APPDATA%/uv/uv.toml"
+     title-mac="~/.config/uv/uv.toml"
+     title-linux="~/.config/uv/uv.toml"
+     mark="simple"
+   />
 
 4. 调用pixi安装uv与python
 
-    ```powershell
-    pixi global install uv python ipython -e uv
-    uv python list
-    ```
-    输出包含 `.pixi/env/uv/python` 则安装成功
+   ```powershell
+   pixi global install uv python ipython -e uv
+   uv python list
+   ```
 
-    :::tip
-    pixi升级已安装的python
-    ```powershell
-    pixi global list # 查看现有的全局子环境
-    pixi global update uv # 升级现有的uv环境
-    ```
-    :::
+   输出包含 `.pixi/env/uv/python` 则安装成功
 
-    :::caution
-    可选步骤: 将项目级的.venv默认激活以作为全局环境
+   :::tip
+   pixi升级已安装的python
 
-    某些情况下你可能会执行`pixi global uninstall uv`，但这个指令也会删除你之前安装的python包。
-    为了避免重新安装的麻烦，可以单独创建一个venv的python级虚拟环境，然后在 powershell 初始化时就进入该uv环境即可。
-    :::
+   ```powershell
+   pixi global list # 查看现有的全局子环境
+   pixi global update uv # 升级现有的uv环境
+   ```
+
+   :::
+
+   :::caution
+   可选步骤: 将项目级的.venv默认激活以作为全局环境
+
+   某些情况下你可能会执行`pixi global uninstall uv`，但这个指令也会删除你之前安装的python包。
+   为了避免重新安装的麻烦，可以单独创建一个venv的python级虚拟环境，然后在 powershell 初始化时就进入该uv环境即可。
+   :::
 
 5. 将刚才 第4步 获得的 `.pixi/env/uv`的完整地址 加入 环境变量PATH的范围
 

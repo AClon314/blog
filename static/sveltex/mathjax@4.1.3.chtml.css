@@ -1,4 +1,3 @@
-
 mjx-container[overflow="scroll"][display] {
   overflow: auto clip;
   min-width: initial !important;
@@ -13,8 +12,8 @@ mjx-container[display] {
   display: block;
   text-align: center;
   justify-content: center;
-  margin: .7em 0;
-  padding: .3em 2px;
+  margin: 0.7em 0;
+  padding: 0.3em 2px;
 }
 
 mjx-container[display][width="full"] {
@@ -35,8 +34,18 @@ mjx-container[jax="CHTML"] {
   white-space: nowrap;
 }
 
-mjx-mo > mjx-c, mjx-mi > mjx-c, mjx-mn > mjx-c, mjx-ms > mjx-c, mjx-mtext > mjx-c {
-  clip-path: padding-box polygon(-1em -2px, calc(100% + 1em) -2px, calc(100% + 1em) calc(100% + 2px), -1em calc(100% + 2px));
+mjx-mo > mjx-c,
+mjx-mi > mjx-c,
+mjx-mn > mjx-c,
+mjx-ms > mjx-c,
+mjx-mtext > mjx-c {
+  clip-path: padding-box
+    polygon(
+      -1em -2px,
+      calc(100% + 1em) -2px,
+      calc(100% + 1em) calc(100% + 2px),
+      -1em calc(100% + 2px)
+    );
 }
 
 mjx-stretchy-h {
@@ -51,43 +60,43 @@ mjx-stretchy-v {
 }
 
 mjx-container [space="1"] {
-  margin-left: .111em;
+  margin-left: 0.111em;
 }
 
 mjx-container [space="2"] {
-  margin-left: .167em;
+  margin-left: 0.167em;
 }
 
 mjx-container [space="3"] {
-  margin-left: .222em;
+  margin-left: 0.222em;
 }
 
 mjx-container [space="4"] {
-  margin-left: .278em;
+  margin-left: 0.278em;
 }
 
 mjx-container [space="5"] {
-  margin-left: .333em;
+  margin-left: 0.333em;
 }
 
 mjx-container [rspace="1"] {
-  margin-right: .111em;
+  margin-right: 0.111em;
 }
 
 mjx-container [rspace="2"] {
-  margin-right: .167em;
+  margin-right: 0.167em;
 }
 
 mjx-container [rspace="3"] {
-  margin-right: .222em;
+  margin-right: 0.222em;
 }
 
 mjx-container [rspace="4"] {
-  margin-right: .278em;
+  margin-right: 0.278em;
 }
 
 mjx-container [rspace="5"] {
-  margin-right: .333em;
+  margin-right: 0.333em;
 }
 
 mjx-container [size="s"] {
@@ -146,7 +155,11 @@ mjx-row {
   display: table-row;
 }
 
-mjx-row > mjx-cell, mjx-row > mjx-base, mjx-row > mjx-under, mjx-row > mjx-over, mjx-row > mjx-den {
+mjx-row > mjx-cell,
+mjx-row > mjx-base,
+mjx-row > mjx-under,
+mjx-row > mjx-over,
+mjx-row > mjx-den {
   display: table-cell;
 }
 
@@ -160,7 +173,7 @@ mjx-container .mjx-selected {
 
 @media (prefers-color-scheme: dark) {
   mjx-container .mjx-selected {
-    outline: 2px solid #C8C8C8;
+    outline: 2px solid #c8c8c8;
   }
 }
 
@@ -195,7 +208,7 @@ mjx-assistive-mml {
   display: block !important;
   width: auto !important;
   overflow: hidden !important;
-  text-indent: 0px ! important;
+  text-indent: 0px !important;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -270,8 +283,8 @@ mjx-msubsup {
 
 mjx-script {
   display: inline-block;
-  padding-right: .05em;
-  padding-left: .033em;
+  padding-right: 0.05em;
+  padding-left: 0.033em;
 }
 
 mjx-script > mjx-spacer {
@@ -283,7 +296,10 @@ mjx-mo {
   text-align: left;
 }
 
-mjx-stretchy-h > mjx-beg, mjx-stretchy-h > mjx-ext, mjx-stretchy-h > mjx-end, mjx-stretchy-h > mjx-mid {
+mjx-stretchy-h > mjx-beg,
+mjx-stretchy-h > mjx-ext,
+mjx-stretchy-h > mjx-end,
+mjx-stretchy-h > mjx-mid {
   display: inline-block;
   width: 0;
   text-align: right;
@@ -297,7 +313,10 @@ mjx-stretchy-h > mjx-ext {
   text-align: left;
 }
 
-mjx-stretchy-v > mjx-beg, mjx-stretchy-v > mjx-ext, mjx-stretchy-v > mjx-end, mjx-stretchy-v > mjx-mid {
+mjx-stretchy-v > mjx-beg,
+mjx-stretchy-v > mjx-ext,
+mjx-stretchy-v > mjx-end,
+mjx-stretchy-v > mjx-mid {
   display: block;
   height: 0;
   margin: 0 auto;
@@ -328,7 +347,7 @@ mjx-c {
 
 mjx-utext {
   display: inline-block;
-  padding: .75em 0 .2em 0;
+  padding: 0.75em 0 0.2em 0;
 }
 
 mjx-TeXAtom {
@@ -487,179 +506,249 @@ mjx-container[jax="CHTML"] > mjx-math.NCM-N[breakable] > * {
   font-family: MJX-NCM-ZERO, MJX-NCM-SB;
 }
 
-@font-face /* MJX-NCM-ZERO */ {
+@font-face {
+  /* MJX-NCM-ZERO */
   font-family: MJX-NCM-ZERO;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-zero.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-zero.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-BRK */ {
+@font-face {
+  /* MJX-BRK */
   font-family: MJX-BRK;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-brk.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-brk.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-N */ {
+@font-face {
+  /* MJX-NCM-N */
   font-family: MJX-NCM-N;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-n.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-n.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-B */ {
+@font-face {
+  /* MJX-NCM-B */
   font-family: MJX-NCM-B;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-b.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-b.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-I */ {
+@font-face {
+  /* MJX-NCM-I */
   font-family: MJX-NCM-I;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-i.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-i.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-BI */ {
+@font-face {
+  /* MJX-NCM-BI */
   font-family: MJX-NCM-BI;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-bi.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-bi.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-DS */ {
+@font-face {
+  /* MJX-NCM-DS */
   font-family: MJX-NCM-DS;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ds.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ds.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-F */ {
+@font-face {
+  /* MJX-NCM-F */
   font-family: MJX-NCM-F;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-f.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-f.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-FB */ {
+@font-face {
+  /* MJX-NCM-FB */
   font-family: MJX-NCM-FB;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-fb.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-fb.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-SS */ {
+@font-face {
+  /* MJX-NCM-SS */
   font-family: MJX-NCM-SS;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ss.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ss.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-SSB */ {
+@font-face {
+  /* MJX-NCM-SSB */
   font-family: MJX-NCM-SSB;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ssb.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ssb.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-SSI */ {
+@font-face {
+  /* MJX-NCM-SSI */
   font-family: MJX-NCM-SSI;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ssi.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ssi.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-SSBI */ {
+@font-face {
+  /* MJX-NCM-SSBI */
   font-family: MJX-NCM-SSBI;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ssbi.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ssbi.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-M */ {
+@font-face {
+  /* MJX-NCM-M */
   font-family: MJX-NCM-M;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-m.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-m.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-SO */ {
+@font-face {
+  /* MJX-NCM-SO */
   font-family: MJX-NCM-SO;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-so.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-so.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-LO */ {
+@font-face {
+  /* MJX-NCM-LO */
   font-family: MJX-NCM-LO;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-lo.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-lo.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-S3 */ {
+@font-face {
+  /* MJX-NCM-S3 */
   font-family: MJX-NCM-S3;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s3.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s3.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-S4 */ {
+@font-face {
+  /* MJX-NCM-S4 */
   font-family: MJX-NCM-S4;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s4.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s4.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-S5 */ {
+@font-face {
+  /* MJX-NCM-S5 */
   font-family: MJX-NCM-S5;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s5.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s5.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-S6 */ {
+@font-face {
+  /* MJX-NCM-S6 */
   font-family: MJX-NCM-S6;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s6.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s6.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-S7 */ {
+@font-face {
+  /* MJX-NCM-S7 */
   font-family: MJX-NCM-S7;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s7.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s7.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-MI */ {
+@font-face {
+  /* MJX-NCM-MI */
   font-family: MJX-NCM-MI;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-mi.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-mi.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-C */ {
+@font-face {
+  /* MJX-NCM-C */
   font-family: MJX-NCM-C;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-c.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-c.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-CB */ {
+@font-face {
+  /* MJX-NCM-CB */
   font-family: MJX-NCM-CB;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-cb.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-cb.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-OS */ {
+@font-face {
+  /* MJX-NCM-OS */
   font-family: MJX-NCM-OS;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-os.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-os.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-OB */ {
+@font-face {
+  /* MJX-NCM-OB */
   font-family: MJX-NCM-OB;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ob.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-ob.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-V */ {
+@font-face {
+  /* MJX-NCM-V */
   font-family: MJX-NCM-V;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-v.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-v.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-LT */ {
+@font-face {
+  /* MJX-NCM-LT */
   font-family: MJX-NCM-LT;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-lt.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-lt.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-RB */ {
+@font-face {
+  /* MJX-NCM-RB */
   font-family: MJX-NCM-RB;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-rb.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-rb.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-EM */ {
+@font-face {
+  /* MJX-NCM-EM */
   font-family: MJX-NCM-EM;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-em.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-em.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-B-a */ {
+@font-face {
+  /* MJX-NCM-B-a */
   font-family: MJX-NCM-B-a;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-b-a.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-b-a.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-U */ {
+@font-face {
+  /* MJX-NCM-U */
   font-family: MJX-NCM-U;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-u.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-u.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-U-a */ {
+@font-face {
+  /* MJX-NCM-U-a */
   font-family: MJX-NCM-U-a;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-u-a.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-u-a.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-S */ {
+@font-face {
+  /* MJX-NCM-S */
   font-family: MJX-NCM-S;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-s.woff2")
+    format("woff2");
 }
 
-@font-face /* MJX-NCM-SB */ {
+@font-face {
+  /* MJX-NCM-SB */
   font-family: MJX-NCM-SB;
-  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-sb.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@latest/chtml/woff2/mjx-ncm-sb.woff2")
+    format("woff2");
 }
 
 mjx-c.mjx-c222B.NCM-LO {
