@@ -1,6 +1,7 @@
 .*/
 !.vscode/
 node_modules
+*.zip
 
 # Output
 .output

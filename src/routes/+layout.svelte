@@ -28,8 +28,8 @@
   const linkClass = (href: string) =>
     `block rounded-lg px-3 py-2 text-sm font-medium no-underline transition ${
       isActive(href)
-        ? "bg-cyan-100 text-cyan-900 ring-1 ring-cyan-200"
-        : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
+        ? "bg-cyan-100 text-cyan-900 ring-1 ring-cyan-200 dark:bg-cyan-950/40 dark:text-cyan-200 dark:ring-cyan-800"
+        : "text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
     }`;
 </script>
 
@@ -39,7 +39,7 @@
 {#snippet navigationList(items: NavItem[], nested: boolean)}
   <ul
     class={nested
-      ? "m-0 mt-1 ml-3 list-none space-y-1 border-l border-slate-200 p-0 pl-3"
+      ? "m-0 mt-1 ml-3 list-none space-y-1 border-l border-slate-200 p-0 pl-3 dark:border-slate-800"
       : "m-0 list-none space-y-1 p-0"}
   >
     {#each items as item}
@@ -53,7 +53,9 @@
             {item.title}
           </a>
         {:else}
-          <div class="px-3 py-2 text-xs font-semibold tracking-[0.18em] text-slate-400 uppercase">
+          <div
+            class="px-3 py-2 text-xs font-semibold tracking-[0.18em] text-slate-400 uppercase dark:text-slate-500"
+          >
             {item.title}
           </div>
         {/if}
@@ -66,9 +68,11 @@
   </ul>
 {/snippet}
 
-<div class="min-h-screen bg-slate-100 text-slate-900 lg:grid lg:grid-cols-[18rem_minmax(0,1fr)]">
+<div
+  class="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 lg:grid lg:grid-cols-[18rem_minmax(0,1fr)]"
+>
   <aside
-    class="hidden border-r border-slate-200 bg-white/85 px-5 py-6 shadow-sm lg:sticky lg:top-0 lg:block lg:h-screen lg:overflow-y-auto"
+    class="hidden border-r border-slate-200 bg-white/85 px-5 py-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/85 lg:sticky lg:top-0 lg:block lg:h-screen lg:overflow-y-auto"
   >
     <nav aria-label="目录">
       {@render navigationList(navigation, false)}
@@ -77,15 +81,15 @@
 
   <div class="min-w-0">
     <header
-      class="sticky top-0 z-20 border-b border-slate-200 bg-white/90 px-4 py-3 shadow-sm backdrop-blur lg:hidden"
+      class="sticky top-0 z-20 border-b border-slate-200 bg-white/90 px-4 py-3 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/90 lg:hidden"
     >
       <details class="group">
         <summary
-          class="flex cursor-pointer list-none items-center justify-between rounded-xl px-2 py-1 font-semibold text-slate-950"
+          class="flex cursor-pointer list-none items-center justify-between rounded-xl px-2 py-1 font-semibold text-slate-950 dark:text-slate-100"
         >
           <span>Python Notes</span>
-          <span class="text-sm text-slate-500 group-open:hidden">目录</span>
-          <span class="hidden text-sm text-slate-500 group-open:inline">收起</span>
+          <span class="text-sm text-slate-500 group-open:hidden dark:text-slate-400">目录</span>
+          <span class="hidden text-sm text-slate-500 group-open:inline dark:text-slate-400">收起</span>
         </summary>
 
         <nav aria-label="移动端目录" class="mt-3">
